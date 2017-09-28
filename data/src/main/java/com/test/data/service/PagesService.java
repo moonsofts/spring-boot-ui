@@ -17,6 +17,7 @@ import java.util.Iterator;
 import java.util.List;
 
 @Service
+//分页 Pageable pageable, List<T> results 页数设定和排序字段设定
 public class PagesService<T> {
     @Autowired
     private Session session;

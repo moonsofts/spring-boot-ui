@@ -10,15 +10,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
-@JsonIdentityInfo(generator=JSOGGenerator.class)
-@NodeEntity
+@JsonIdentityInfo(generator=JSOGGenerator.class)//防止查询数据的时候引发递归效应
+@NodeEntity //节点实体
 public class Actor {
-    @GraphId
+    @GraphId //节点唯一标识 ， 系统自动生成
     Long id;
     private String name;
     private int sex;
     @DateLong
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")//neo4j 没有日期格式数据类型，用注解进行转换
     private Date born;
 
     public Actor() { }

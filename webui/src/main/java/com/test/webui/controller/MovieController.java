@@ -51,6 +51,14 @@ public class MovieController {
         return new ModelAndView("movie/new");
     }
 
+
+    @RequestMapping("/newNew")
+    public ModelAndView createNew(ModelMap model){
+        String[] files = {"/images/movie/西游记.jpg","/images/movie/西游记续集.jpg"};
+        model.addAttribute("files",files);
+        return new ModelAndView("movie/new");
+    }
+
     @RequestMapping(value="/save", method = RequestMethod.POST)
     public String save(Movie movie) throws Exception{
         movieRepository.save(movie);

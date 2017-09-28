@@ -36,9 +36,12 @@ public class ActorController {
     }
 
     @RequestMapping("/new")
+    //控制器：新建
     public ModelAndView create(){
         return new ModelAndView("actor/new");
     }
+
+
 
     @RequestMapping(value="/save", method = RequestMethod.POST)
     public String save(Actor actor) throws Exception{

@@ -24,9 +24,9 @@ public class Movie {
     private Date createDate;
 
     @Relationship(type="扮演", direction = Relationship.INCOMING)
-    List<Role> roles = new ArrayList<>();
+    List<Role> roles = new ArrayList<>();//关系列表，泛型 指只能存放所有角色的集合
 
-    public Role addRole(Actor actor, String name){
+    public Role addRole(Actor actor, String name){ //增加关系的方法
         Role role = new Role(actor,this,name);
         this.roles.add(role);
         return role;

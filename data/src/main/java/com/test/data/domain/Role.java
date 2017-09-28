@@ -13,15 +13,15 @@ public class Role {
     @GraphId
     Long id;
     String name;
-    @StartNode
+    @StartNode //开始节点
     Actor actor;
-    @EndNode
+    @EndNode //结束节点
     Movie movie;
 
-    public Role() {
+    public Role() {  //空的构造函数
     }
 
-    public Role(Actor actor, Movie movie, String name) {
+    public Role(Actor actor, Movie movie, String name) {//构造函数的重载
         this.actor = actor;
         this.movie = movie;
         this.name = name;

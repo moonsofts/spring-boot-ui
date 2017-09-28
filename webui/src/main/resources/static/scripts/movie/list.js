@@ -5,6 +5,11 @@ $(function () {
     $('#addBtn').click(function(){
         create();
     });
+    $('#addBtnNew').click(function()
+    {
+        createNew();
+    });
+
     //初始化分页
     pageaction();
     var pg = $('.pagination');
@@ -112,7 +117,7 @@ function edit(id){
             close: function(){
                 artdialog = null;
             }
-        });
+        });//artDialog是一个基于javascript编写的对话框组件
     });
 }
 function del(id){
@@ -129,7 +134,12 @@ function del(id){
     });
 }
 function create(){
-    $.get("./new",{ts:new Date().getTime()},function(data){
+   // $.get("./new",{ts:new Date().getTime()},function(data){
+        $.get("./new",{ts:new Date().getTime()},function(data){
+            console.log({ts:new Date().getTime()});
+            console.log({ts:Date.now()});
+        //$.get(URL,data,function(data,status,xhr),dataType)
+        // jquery HTTP GET 请求到页面并取回结果
         art.dialog({
             lock:true,
             opacity:0.3,
@@ -146,7 +156,33 @@ function create(){
             close: function(){
                 artdialog = null;
             }
-        });
+        });  //artDialog是一个基于javascript编写的对话框组件
+    });
+}
+function createNew(){
+    // $.get("./new",{ts:new Date().getTime()},function(data){
+    $.get("./newNew",{ts:new Date().getTime()},function(data){
+        console.log({ts:new Date().getTime()});
+        console.log({ts:Date.now()});
+        //$.get(URL,data,function(data,status,xhr),dataType)
+        // jquery HTTP GET 请求到页面并取回结果
+        art.dialog({
+            lock:true,
+            opacity:0.3,
+            title: "新增",
+            width:'750px',
+            height: 'auto',
+            left: '50%',
+            top: '50%',
+            content:data,
+            esc: true,
+            init: function(){
+                artdialog = this;
+            },
+            close: function(){
+                artdialog = null;
+            }
+        });  //artDialog是一个基于javascript编写的对话框组件
     });
 }
 
